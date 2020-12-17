@@ -1,0 +1,24 @@
+Sandboxes
+===
+https://codesandbox.io/s/react-file-upload-t9z00
+https://codesandbox.io/s/react-hooks-x5zbx
+https://codesandbox.io/s/basic-structure-i6ipw
+https://codesandbox.io/s/react-unit-testing-6x4l1
+
+Hooks
+===
+https://reactjs.org/docs/hooks-intro.html
+
+JWT
+===
+https://jwt.io/
+https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/JSON_Web_Token_Cheat_Sheet_for_Java.md
+
+Unit Testing
+===
+https://reactjs.org/docs/testing.html
+https://jestjs.io/docs/en/getting-started
+https://airbnb.io/enzyme/docs/api/
+
+
+https://codesandbox.io/s/n7l025m5y4?from-embed

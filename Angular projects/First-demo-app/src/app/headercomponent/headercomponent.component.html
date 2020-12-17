@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script>
+        var app=angular.module("header",[]);
+        app.controller('oneway',function($scope){
+            $scope.name="Welcome Aniket"
+         });
+        </script>
+    </head>
+    <body  ng-app="header">
+
+    <div ng-controller="oneway">
+    
+    <p>Input something in the input box:</p>
+    <p>Name: {{ name }}</p>
+    
+    </div>
+    </body>
+    
+   </html>
+    

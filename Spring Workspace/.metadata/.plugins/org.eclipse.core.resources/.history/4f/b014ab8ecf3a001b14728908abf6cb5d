@@ -1,0 +1,26 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.Student;
+import com.example.demo.service.StudentService;
+
+@RestController
+public class StudentController {
+	@Autowired
+	StudentService studentservice;
+	@PostMapping("/Student")
+	private int saveStudent(@RequestBody Student student){
+		studentservice.saveUpdate(student);
+		return  student.getId();
+	}
+	@PostMapping("/Login")
+	private Student findStudent(@RequestBody Student student){
+		return studentservice.findStudent(student);
+		
+	}
+
+}

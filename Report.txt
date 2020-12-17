@@ -1,0 +1,46 @@
+
+Date:-25/11/20
+Task:-explained Basic OOPS concept vai program
+      Use different collection and explained it
+-----------------------------------------------------------------------------
+Date:-26/11/20
+Task:-Read excelsheet using java and one logical program 
+      like to find out how many characters repeated in string
+-----------------------------------------------------------------------------
+Date:-27/11/20
+Task:- Added some extra task in Reading excelsheet like
+       two sheet we have to read and print emplyoee details
+-----------------------------------------------------------------------------
+Date:-30/11/20
+Task:- working on same task in which I was faceing some issue parth help me out 
+-------------------------------------------------------------------------------
+Date:-1/12/20
+Task:- Lawnmoveing service  application
+-------------------------------------------------------------------------------
+Date:-2/12/20
+Task:- Lawnmoveing Service application Review by parth then he suggested some changes
+      as I miss understand the requiremnets 
+------------------------------------------------------------------------------
+Date:3/12/20
+Task:- Lawnmoveing Service application Review by parth then he suggested some changes
+       fix the Changes and completed
+----------------------------------------------------------------------------------
+Date:-4/12/20
+Task:- Assigned new task of Flight Application Along with that started Studying angular
+-----------------------------------------------------------------------------------
+Date:-7/12/20
+Task:- working on  Flight Application along with that studying angular
+------------------------------------------------------------------------------------
+Date:-8/12/20
+Task:-Viren review the code and suggested few changes and fix that changes
+-------------------------------------------------------------------------------------
+Date:-9/12/20
+Task:-Flight Application completed and got new task of Todo Application desing both 
+      front end and backend
+---------------------------------------------------------------------------------------
+Date:-10/12/20
+ Task:-Created Backend rest Service in spring boot using h2 database and 
+check it is working using postman
+---------------------------------------------------------------------------------------
+Date:- 11/12/20
+Task:-started working on Frontend part login an registration part is done 

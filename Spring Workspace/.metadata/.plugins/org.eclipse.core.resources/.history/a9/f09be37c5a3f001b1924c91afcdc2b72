@@ -1,0 +1,26 @@
+package com.example.demo.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Student;
+import com.example.demo.repository.Studentrepository;
+@Service
+public class MyUserDetailService implements UserDetailsService {
+	@Autowired
+	Studentrepository studentRepository;
+	@Override
+	public UserDetails loadUserByUsername(String emailname) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		Student user =studentRepository.findByEmail(emailname);
+		//user.orElseThrow(()->new UsernameNotFoundException("Username not found"));
+		return user.map(MyUserDetails::new ).get();
+		
+	}
+
+}

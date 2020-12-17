@@ -1,0 +1,41 @@
+package travel.example;
+
+import java.util.Scanner;
+
+public class FlightTest {
+	Flight f;
+	public void readValidate(){
+		int num=0;
+		System.err.println("enter number of flights to make entry ");
+		Scanner Sc =new Scanner(System.in);
+		num=Sc.nextInt();
+		for(int i=1;i<num+1;i++){
+			 int temp;
+			f=new Flight();
+			f.setFlightNumber(i);
+			System.out.println("Enter Departure city");
+			f.setDepartureCity(Sc.next());
+			Sc.next();
+			System.out.println("Enter the flight distance ");
+			temp=Sc.nextInt();
+			f.setDistance(temp);
+			System.out.println("Enter Fligth Number");
+			temp=Sc.nextInt();
+			if(temp > 1111 && temp < 9999){
+			f.setFlightNumber(Sc.nextInt());
+			}
+			else{
+				System.out.println("please enter number between 1111-9999");
+				i--;
+				
+			}
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

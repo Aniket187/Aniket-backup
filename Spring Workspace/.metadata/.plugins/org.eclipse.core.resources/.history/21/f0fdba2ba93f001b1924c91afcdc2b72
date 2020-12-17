@@ -1,0 +1,47 @@
+package com.example.demo.controller;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.naming.AuthenticationException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.utils.AuthUserReq;
+import com.example.demo.utils.AuthUserResonse;
+
+@CrossOrigin(origins = "*")
+@RestController
+public class AuthenticationController {
+	@Autowired
+	private AuthenticationManager authmanager;
+	@PostMapping(value="/login")
+	private AuthUserResonse authenticateRequest(@RequestBody AuthUserReq authUserReq)throws AuthenticationException{
+		Authentication authentication = authmanager.authenticate(new UsernamePasswordAuthenticationToken(authUserReq.getEmail(),
+				authUserReq.getPassword()));
+		System.out.println("Firstline");
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+	List<String> authorities=authentication.getAuthorities().stream().map(grantAuthority->((GrantedAuthority)grantAuthority).getAuthority())
+			.collect(Collectors.toList());
+	String userId =((User)authentication.getPrincipal()).getUsername();
+	System.out.println("before setting auth response");
+	AuthUserResonse authUserResponse=new AuthUserResonse();
+	authUserResponse.setUserId(userId);
+	authUserResponse.setUserName(authUserReq.getEmail());
+	authUserResponse.setAuthorities(authorities);
+		
+		return authUserResponse;
+	}
+
+}

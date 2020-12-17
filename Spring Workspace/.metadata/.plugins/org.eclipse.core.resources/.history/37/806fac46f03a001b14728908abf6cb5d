@@ -1,0 +1,27 @@
+package com.example.demo.model;
+
+public class Response {
+	private String msg;
+	private Student std;
+	private Todo td;
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	public Student getStd() {
+		return std;
+	}
+	public void setStd(Student std) {
+		this.std = std;
+	}
+	public Todo getTd() {
+		return td;
+	}
+	public void setTd(Todo td) {
+		this.td = td;
+	}
+	
+
+}

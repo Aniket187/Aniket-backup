@@ -1,0 +1,34 @@
+package com.example.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Todo;
+import com.example.demo.repository.Todorepository;
+
+@Service
+public class TodoService {
+	@Autowired
+	Todorepository todorepository;
+	public void saveUpdate(Todo todo){
+		todorepository.save(todo);
+		
+	}
+	public void update(int id) {
+		todorepository.update(id);
+	}
+	public List<Todo> findAll(int id){
+		return todorepository.findAllById(id);
+	}
+	
+	public Optional<Todo> finById(int id){
+		return todorepository.findById(id);
+	}
+	public void delete(int id){
+		todorepository.deleteById(id);
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.example.demo.service;
+
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import com.example.demo.utils.UserDto;
+
+public interface UsersService extends UserDetailsService {
+    public UserDto getUserByEmail(String email);
+}

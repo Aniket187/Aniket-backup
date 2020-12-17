@@ -1,0 +1,61 @@
+package travel.example;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class FlightTest {
+	Flight f;
+	List <Flight> li=new ArrayList<Flight>();
+	public void readValidate(){
+		int num=0;
+		System.out.println("enter number of flights to make entry ");
+		Scanner Sc =new Scanner(System.in);
+		num=Sc.nextInt();
+		for(int i=1;i<num+1;i++){
+			 int temp;
+			f=new Flight();
+			f.setNumberofFlight(i);;
+			System.out.println("Enter Departure city");
+			f.setDepartureCity(Sc.next());
+			Sc.nextLine();
+			System.out.println("Enter the flight distance ");
+			temp=Sc.nextInt();
+			f.setDistance(temp);
+			do{
+				System.out.println("Enter Fligth Number  ");
+				temp=Sc.nextInt();
+				Sc.nextLine();
+				if(temp < 1111 || temp > 9999){
+					System.err.println(("Please Enter Flight Number Between 1111 to 9999 "));
+				}
+				f.setFlightNumber(temp);
+				
+			}
+			while(temp < 1111 || temp > 9999);
+	
+			do{
+				System.out.println("Enter the Prize of the Flight");
+				temp=Sc.nextInt();
+				if(temp < 9 || temp > 900){
+					System.err.println("Please enter Ticket Price bewteen 9$ to 900$");
+				}
+				
+				f.setPrice(temp);
+			}
+			while(temp < 9 || temp > 900);
+			li.add(f);
+		}
+		Sc.close();
+		//System.out.println(f);
+		
+	}
+
+	public static void main(String[] args) {
+		FlightTest test=new FlightTest();
+		test.readValidate();
+		System.out.println(test.li);
+
+	}
+
+}

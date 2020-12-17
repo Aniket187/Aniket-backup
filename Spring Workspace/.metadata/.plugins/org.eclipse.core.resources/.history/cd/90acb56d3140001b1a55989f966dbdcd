@@ -1,0 +1,30 @@
+//package com.example.demo.service;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.stereotype.Service;
+//
+//import com.example.demo.model.Student;
+//import com.example.demo.repository.Studentrepository;
+//import com.example.demo.utils.Mypriciple;
+//
+//@Service
+//public class UserAuthservice implements UserDetailsService {
+//
+//@Autowired
+//private Studentrepository studentRepository;
+//
+//	@Override
+//	public UserDetails loadUserByUsername(String arg0) throws UsernameNotFoundException {
+//		// TODO Auto-generated method stub
+//		//Student std=studentRepository.findByEmail(arg0);
+////		System.out.println(std);
+////		if(std==null){
+////			throw new UsernameNotFoundException(arg0);
+////		}
+//		return null;
+//	}
+//
+//}

@@ -1,0 +1,5 @@
+package com.example.demo.service;
+
+public interface UsersService extends UserDetailsService {
+    public UserDto getUserByEmail(String email);
+}

@@ -1,0 +1,58 @@
+public void LawnmoverService(){
+		final int lawnNum=7;
+		int totalServicecost=0;
+		int maxLawn=0;
+		int minlaw=0;
+		Map <Integer,Integer> serviceMap=new HashMap<Integer, Integer>();
+		System.out.println("welcome to lawn moving service  ");
+	
+		int []eachlawnsize=new int[lawnNum];
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Please enter the area of 6 lawn in square meter");
+	
+	
+	for(int i=1;i<lawnNum;i++){
+		System.out.println("enter area for lawn no"+i );
+		eachlawnsize[i]=sc.nextInt();
+	}
+	for(int j=1;j<lawnNum;j++){
+		if(eachlawnsize[j]<500){
+			serviceMap.put(eachlawnsize[j],40);
+		}
+		if(eachlawnsize[j]>500&&eachlawnsize[j]<900){
+			serviceMap.put(eachlawnsize[j],60);
+		}
+		if(eachlawnsize[j]>900&&eachlawnsize[j]<1500){
+			serviceMap.put(eachlawnsize[j],75);
+		}
+		if(eachlawnsize[j]>1500){
+			serviceMap.put(eachlawnsize[j], 100);
+		}
+	}
+	for(Map.Entry<Integer, Integer> rs:serviceMap.entrySet() ){
+		totalServicecost=rs.getValue()+totalServicecost;
+		
+		}
+		maxLawn=Collections.max(serviceMap.keySet());
+		minlaw=Collections.min(serviceMap.keySet());
+	
+     	System.out.println("Report of lawing service---------------------");
+	
+		System.out.println("Heighest weekly lawn moveing fee"+serviceMap.get(maxLawn) +" Rs");
+		System.out.println("Lowest weekly lawn moveing fee:- "+serviceMap.get(minlaw)+ " Rs");
+		System.out.println("Total weekly lawn moveing fee:- "+totalServicecost+" Rs");	
+		System.out.println("Average weekly lawning fee is"+(float)totalServicecost/lawnNum+" Rs");
+	for(int i=0;i<lawnNum;i++){
+		if(maxLawn==eachlawnsize[i]){
+			System.out.println("Lawn number with height monthly fee is "+i);
+			}
+		
+		}
+---------------------------------------
+if (rs.getName().equals(name)) {
+
+				System.out.println("Date of Joining| Name    |Salary  | Location");
+				System.out.println(rs.getJoiningDate() + "   | " + rs.getName() + "|" + rs.getSalary() + " |"
+						+ Addressmap.get(rs.getAddressId()));
+			}
+	}

@@ -1,0 +1,54 @@
+package travel.example;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class FlightTest {
+	Flight f;
+	List <Flight> li=new ArrayList<Flight>();
+	public void readValidate(){
+		int num=0;
+		System.out.println("enter number of flights to make entry ");
+		Scanner Sc =new Scanner(System.in);
+		num=Sc.nextInt();
+		for(int i=1;i<num+1;i++){
+			 int temp;
+			f=new Flight();
+			f.setNumberofFlight(i);;
+			System.out.println("Enter Departure city");
+			f.setDepartureCity(Sc.next());
+			Sc.nextLine();
+			System.out.println("Enter the flight distance ");
+			temp=Sc.nextInt();
+			f.setDistance(temp);
+			do{
+				System.out.println("Enter Fligth Number Between 1111 to 9999 ");
+				temp=Sc.nextInt();
+				System.out.println(temp);
+				Sc.nextLine();
+				f.setFlightNumber(temp);
+			}
+			while(temp < 1111 || temp > 9999);
+			System.out.println("out of loop");
+			do{
+				System.out.println("Enter the Prize of the Flight");
+				temp=Sc.nextInt();
+				f.setPrice(temp);
+			}
+			while(temp < 9 || temp >900);
+			li.add(f);
+		}
+		Sc.close();
+		//System.out.println(f);
+		
+	}
+
+	public static void main(String[] args) {
+		FlightTest test=new FlightTest();
+		test.readValidate();
+		System.out.println(test.li);
+
+	}
+
+}

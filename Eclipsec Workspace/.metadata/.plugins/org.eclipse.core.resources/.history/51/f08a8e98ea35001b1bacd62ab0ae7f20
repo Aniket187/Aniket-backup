@@ -1,0 +1,39 @@
+package travel.example;
+
+public class Flight {
+private int price;
+private int flightNumber;
+private String departureCity;
+private int distance;
+private int numberofFlight;
+public int getPrice() {
+	return price;
+}
+public void setPrice(int price) {
+	this.price = price;
+}
+public int getFlightNumber() {
+	return flightNumber;
+}
+public void setFlightNumber(int flightNumber) {
+	this.flightNumber = flightNumber;
+}
+public String getDepartureCity() {
+	return departureCity;
+}
+public void setDepartureCity(String departureCity) {
+	this.departureCity = departureCity;
+}
+public int getDistance() {
+	return distance;
+}
+public void setDistance(int distance) {
+	this.distance = distance;
+}
+public int getNumberofFlight() {
+	return numberofFlight;
+}
+public void setNumberofFlight(int numberofFlight) {
+	this.numberofFlight = numberofFlight;
+}
+}

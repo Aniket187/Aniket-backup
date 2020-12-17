@@ -1,0 +1,58 @@
+package com.example.demo.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
+public class Todo {
+	@Id
+	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@Column
+	private String title;
+	@Column
+	private String description;
+	@Column
+	private boolean Status;
+	@Column
+	private int userid;
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public boolean isStatus() {
+		return Status;
+	}
+	public void setStatus(boolean status) {
+		Status = status;
+	}
+	
+	
+
+}

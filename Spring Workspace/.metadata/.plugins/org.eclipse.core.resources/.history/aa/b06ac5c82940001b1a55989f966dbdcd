@@ -1,0 +1,65 @@
+package com.example.demo.config;
+
+import java.io.IOException;
+
+import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.access.AccessDeniedHandlerImpl;
+
+import com.example.demo.service.UserDetailServiceImpl;
+
+@Configuration
+@EnableWebSecurity
+public class SecurtiyConfiguration extends WebSecurityConfigurerAdapter {
+@Resource
+private AuthenticationEntryPoint authenticationEntryPoint;
+@Autowired
+private UserDetailServiceImpl userDetailsService;
+@Bean
+public AccessDeniedHandler accessDeniedHandler(){
+	return new AccessDeniedHandlerImpl() ;
+}
+@Bean
+@Override
+public AuthenticationManager authenticationManagerBean() throws Exception{
+	return super.authenticationManagerBean();
+	
+}
+@Bean
+public BCryptPasswordEncoder passwordEncoder() {
+  return new BCryptPasswordEncoder();
+}
+@Autowired
+protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	auth.userDetailsService(userDetailsService);
+}
+
+@Autowired
+protected void configure(HttpSecurity http) throws Exception {
+ 
+   http .csrf().disable();
+   http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
+   http
+      .httpBasic().disable()
+      .formLogin().disable()
+      .logout().disable();
+  http.authorizeRequests()
+  	  .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+  	  .antMatchers("/welcome").hasAnyRole("ADMIN","USER")
+      .antMatchers("/student","/h2-console").permitAll();
+ 
+  http.headers().frameOptions().disable();
+}
+}

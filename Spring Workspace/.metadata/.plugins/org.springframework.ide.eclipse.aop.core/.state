@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="TodoApplicationDemo"/>
+<aop-project name="SpringBoot-H2-database-demo"/>
+<aop-project name="TodoApplcation"/>
+<aop-project name="Todoapp"/>
+</aop-reference-model>

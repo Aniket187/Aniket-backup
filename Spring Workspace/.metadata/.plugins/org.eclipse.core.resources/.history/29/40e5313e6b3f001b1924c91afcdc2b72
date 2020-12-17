@@ -1,0 +1,40 @@
+package com.example.demo.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Student;
+import com.example.demo.repository.Studentrepository;
+@Service
+public class MyUserDetailService implements UserDetailsService {
+	  
+//	    public String passwordEncoder(String password) {
+//		   BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12); 
+//		   String result=encoder.
+//	        return result;
+//	    }
+	 
+	@Autowired
+	Studentrepository studentRepository;
+	@Override
+	public UserDetails loadUserByUsername(String emailname) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		Student user =studentRepository.findByEmail(emailname);
+		if(user==null){
+		new UsernameNotFoundException("Username not found");
+			}
+		//user.setPassword(passwordEncoder(user.getPassword()));
+		System.out.println("in Userdetail"+user.getPassword());
+	
+		return new MyUserDetails(user);
+		
+	}
+
+}

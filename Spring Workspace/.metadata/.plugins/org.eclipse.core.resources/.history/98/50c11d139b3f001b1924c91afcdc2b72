@@ -1,0 +1,29 @@
+package com.example.demo.controller;
+
+import javax.naming.AuthenticationException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.utils.AuthUserReq;
+import com.example.demo.utils.AuthUserResonse;
+
+@CrossOrigin(origins = "*")
+@RestController
+public class AuthenticationController {
+	@Autowired
+	private AuthenticationManager authmanager;
+	@PostMapping(value="/login")
+	private AuthUserResonse authenticateRequest(@RequestBody AuthUserReq authUserReq)throws AuthenticationException{
+		Authentication authentication = authmanager.authenticate(new UsernamePasswordAuthenticationToken(authUserReq.getEmail(), authUserReq.getPassword()));
+		return null;
+	}
+
+}

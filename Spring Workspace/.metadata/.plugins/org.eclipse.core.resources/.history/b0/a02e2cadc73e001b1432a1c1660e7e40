@@ -1,0 +1,47 @@
+package com.example.demo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.security.core.userdetails.User;
+import com.example.demo.model.Student;
+import com.example.demo.repository.UsersRepository;
+import com.example.demo.utils.UserDto;
+@Service
+public class UsersServiceImpl implements UsersService {
+	@Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Autowired
+    UsersRepository usersRepository;
+    @Autowired
+    public UsersServiceImpl(BCryptPasswordEncoder bCryptPasswordEncoder,
+            UsersRepository usersRepository) {
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.usersRepository = usersRepository;
+    }
+    @Override
+    public UserDto getUserByEmail(String email) {
+        Student user = usersRepository.findByEmail(email);
+        if (user == null) {
+            throw new UsernameNotFoundException(email);
+        }
+        return new ModelMapper().map(user, UserDto.class);
+    }
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+       Student user = usersRepository.findByEmail(email);
+        if (user == null) {
+            throw new UsernameNotFoundException(email);
+        }
+        return new User(user.getEmail(), user.getPassword(),
+                true, // Email verification status
+                true, true,
+                true, new ArrayList<>());
+    }
+}

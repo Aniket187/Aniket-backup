@@ -1,0 +1,26 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-container > div {
+  background-color: lightgray;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+}
+
+.cart-header > span {
+  float: right;
+  margin: 10px;
+}
+
+.cart-header {
+  display: inline-block;
+  background-color: lightgray;
+  width: 100%;
+}
