@@ -12,8 +12,8 @@ const httpOption={
   providedIn: 'root'
 })
 export class StudentserviceService {
-  studenturl:string='http://localhost:8080/Student';
-   Loginurl:string="http://localhost:8080/Login";
+  studenturl:string='http://localhost:8080/student';
+   Loginurl:string="http://localhost:8080/login";
 
 
   constructor(private http :HttpClient) { }

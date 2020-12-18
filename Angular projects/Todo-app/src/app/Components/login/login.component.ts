@@ -25,16 +25,17 @@ export class LoginComponent implements OnInit {
           email: ['', Validators.required],
           password: ['', Validators.required]
       });
-
-     
   }
 
-  // convenience getter for easy access to form fields
-  get reg() { return this.form.controls; }
+
+  get reg() { 
+     
+      return this.form.controls; }
 
   onSubmit() {
+    //console.log(this.reg.email.errors.required);
       this.submitted = true;
-      // stop here if form is invalid
+    
       if (this.form.invalid) {
           return;
       }
@@ -43,8 +44,11 @@ export class LoginComponent implements OnInit {
       this.accountService.loginuser(this.form.value)
           .subscribe(data=>{
               console.log(data)
+              sessionStorage.setItem("user",JSON.stringify(data));
+              this.loading=false;
           },error=>{
-              console.log(error)
+              console.log(error.error)
+              window.confirm("please enter proper username and password")
           });
   }
 }
